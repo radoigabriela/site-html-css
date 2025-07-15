@@ -1,0 +1,419 @@
+body{
+    --culoare-text: rgb(13, 0, 255);
+    --culoare-fundal: white;
+    --spatiere-pagina: 90px;
+    --dimensiune-text:15px;
+    font-size: var(--dimensiune-text);
+    --culoare-gradient:rgba(205, 22, 222, 0.9);
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+    transition: padding 1s linear;
+    background-image: url('../resurse/bluecam.jpg'), url('../resurse/photobc.png'); 
+    background-repeat: repeat-x, no-repeat;
+    background-position: left top, center;
+    background-attachment: fixed; 
+}
+
+#container{
+    background-image: linear-gradient(to left, rgba(2, 44, 255, 0.178),rgba(0, 149, 255, 0.402), rgba(0, 0, 255, 0.338));
+}
+
+.c1{
+	font-size: 1rem;
+    padding-left: 0px;
+}
+
+#ceva{
+    background-color: var(--culoare-fundal);
+    border: 1px solid var(--culoare-text);
+    padding: 25px;
+    margin: 0px;
+    width: 300px;
+}
+
+h1{
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+
+h1 span{
+      animation-name: plimba_text; 
+      display: block;
+      transform:rotateZ(90deg) translateX(100%);
+      animation-duration: 15s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+}
+
+@keyframes plimba_text {
+    0%{
+        transform: translateX(0%);
+    }
+
+    100%{
+        transform: translateX(100%);
+    }
+    
+}
+
+.schimba_culoare {
+    animation-name: schimba_culoare; 
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes schimba_culoare {
+    0%{
+        background-color: rgb(79, 36, 247);
+    }
+    25%{
+        background-color: rgb(9, 209, 209);
+    }
+    50%{
+        background-color: aquamarine;
+    }
+    75%{
+        background-color: rgb(111, 224, 186);
+    }
+    100%{
+        background-color: turquoise;
+    }
+}
+
+main{
+    background-color: whitesmoke;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-left: 3px solid whitesmoke;
+    border-right: 3px solid whitesmoke;
+    border: 3px solid whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    color:var(--culoare-text);
+}
+
+figure{
+    margin:0;
+}
+
+main>*{
+    outline: 1px solid black;
+    padding: 10px;
+ 
+}
+
+#vizionare::selection{
+    background-color: rgba(255,255,255,1);
+    color:plum;
+}
+
+#oferte{
+    column-count: 2;
+    column-rule: 1px dotted black;
+}
+
+iframe.ifr{
+	width:40vw;
+	min-width:400px;
+}
+
+#pachete{
+	list-style-image: url("../resurse/minic.png")  ;
+}
+
+#pachete>li {
+    width: 270px;
+    height: 35px;
+}
+
+#pachete>li:nth-of-type(2n){
+	background-color: lightblue;
+}
+
+#pachete>li:nth-of-type(2n+1){
+	background-color: rgb(237, 173, 240);
+}
+
+#pachete>li{
+	outline: 2px solid  rgb(236, 18, 215);
+	transition: 0.5s linear;
+    cursor: pointer;
+}
+
+#pachete>li:hover{
+	outline: 4px solid rgb(39, 22, 218);
+}
+
+#schimba_lista:checked+ul{
+    list-style-type: decimal;
+}
+
+footer{
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+}
+
+/*grid*/
+
+#welcome{
+    grid-area: z-welcome;
+}
+#oferte{
+    grid-area: z-oferte;
+}
+#galerie{
+    grid-area: z-galerie;
+}
+#orar{
+    grid-area: z-orar;
+}
+#index-intrebari{
+    grid-area: z-index-intrebari;
+    cursor: pointer;
+}
+#detalii{
+    grid-area: z-detalii;
+}
+#pachete{
+    grid-area: z-pachete;
+}
+#premium{
+    grid-area: z-premium;
+}
+#contact{
+    grid-area: z-contact;
+}
+
+main{
+    display: grid;
+    grid-template-areas: "z-welcome z-oferte z-galerie"
+    "z-orar z-index-intrebari z-index-intrebari"
+    "z-orar z-index-intrebari z-index-intrebari"
+    "z-detalii z-pachete z-premium"
+    "z-contact z-contact z-contact";
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-gap:10px;
+}
+
+@media screen and (max-width: 1100px) {
+    main{
+        grid-template-areas: 
+        "z-welcome z-galerie"
+        "z-oferte z-orar"
+        "z-index-intrebari z-detalii"
+        "z-pachete z-premium"
+        "z-contact z-contact";
+        grid-template-columns: 1fr 1fr;
+    }
+    #oferte{
+        column-count: 1;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    main {
+        grid-template-areas: 
+            "z-welcome"
+            "z-oferte"
+            "z-galerie"
+            "z-orar"
+            "z-index-intrebari"
+            "z-detalii"
+            "z-pachete"
+            "z-premium"
+            "z-contact";
+        grid-template-columns: 1fr;
+    }
+}
+
+/*link top*/ 
+
+#link_top{
+    --dimensiune:4.2em;
+    --spatiere:1.5rem;
+    --culoare1:rgb(11, 63, 253);
+    --culoare2:rgb(32, 214, 230);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--dimensiune);
+    height: var(--dimensiune);
+    border: 1px solid var(--culoare1);
+    position: fixed;
+    bottom:var(--spatiere);
+    right:var(--spatiere);
+    border-radius: 50%;
+    transition: all 1s linear;
+    box-shadow: var(--culoare1) 0px 0px 0.5rem 0.3rem inset, white 0px 0px 0.5rem 0.5rem ;
+}
+
+#link_top:hover{
+    filter: grayscale(100%);
+    box-shadow: var(--culoare2) 0px 0px 0.5rem 0.3rem inset, white 0px 0px 0.5rem 0.5rem ;
+
+}
+
+#link_top:hover span{
+    transform:translateY(-40%);
+}
+
+#link_top span{
+    transition: all 1s linear;
+    display: block;
+    --dim-border:15px;
+    width: 0;
+    height: 0;
+    border-width: var(--dim-border);
+    border-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-top-width: 0;
+    border-bottom-color: var(--culoare1);
+}
+
+/*submeniu*/
+
+.submeniu{
+    display: none;
+    padding: 0;
+    margin: 0;
+    list-style-type: none
+}
+
+nav{
+    --culoare-inchisa: rgb(1, 1, 189);
+    --culoare-deschisa: rgb(12, 125, 255);
+    --latime-buton: 95px;
+    --inaltime-buton: 2rem;
+    --latime-border: 1px;
+}
+
+.menu{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.menu li{
+    border: var(--latime-border) solid var(--culoare-inchisa);
+    box-sizing: border-box;
+    background-color: var(--culoare-deschisa);
+    height: var(--inaltime-buton);
+    width: var(--latime-buton);
+    justify-content: center;
+    text-align: center;
+    transition: 1s linear;
+}
+
+.submeniu{
+    position: relative;
+    z-index: 100;
+    opacity: 0;
+    animation-name: animatie_submeniu;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transform: scaleY(0);
+    transform-origin: center top;
+}
+
+.menu>li{
+    border-left: none;
+}
+
+.menu li:hover .submeniu{
+    display:block;
+}
+
+.menu li:hover{
+    background-color: var(--culoare-inchisa);
+}
+
+.menu li a:hover, .menu li div:hover{
+    color:white;
+    display: flex;
+}
+
+.menu li div, .menu li a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+nav{
+    background-color: var(--culoare-deschisa);
+}
+
+@keyframes animatie_submeniu{
+    100%{
+        opacity:1;
+        transform:scaleY(1);
+    }
+}
+
+/*hamburger*/
+
+#ch-menu, #hamburger{
+    display: none;
+}
+
+@media screen and (max-width:750px){
+    #hamburger{
+        display: block;
+        }
+    #hamburger img{
+        height: var(--inaltime-buton);
+    }
+    .menu{
+        display: none;
+    }
+    #ch-menu:checked+.menu{
+        display: block;
+    }
+    .menu li{
+        width:100%;
+    }
+    .submeniu li{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:1100px) {
+   
+    html{ --dimensiune-text:14px;
+      
+        } 
+  
+    body{
+          --spatiere-pagina:40px;
+  } 
+}
+  
+  @media screen and (max-width:750px) {
+      
+    html{ 
+        --dimensiune-text:10px;  
+      }
+  
+    body{
+          --spatiere-pagina:5%;
+      }
+    }
+
+    
+
